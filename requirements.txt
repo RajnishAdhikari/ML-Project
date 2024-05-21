@@ -2,3 +2,4 @@ transformers
 huggingface-hub
 torch
 accelerate
+python-dotenv
