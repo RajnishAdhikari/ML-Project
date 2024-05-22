@@ -2,12 +2,26 @@ from flask import Flask, request, jsonify
 from transformers import LlamaForCausalLM, LlamaTokenizer
 import requests
 from bs4 import BeautifulSoup
+import os
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 
-# Load the LLaMA-3 model and tokenizer
-model = LlamaForCausalLM.from_pretrained("decaplusplus/llama-3b-hf")
-tokenizer = LlamaTokenizer.from_pretrained("decaplusplus/llama-3b-hf")
+# Load environment variables from .env file
+load_dotenv()
+
+# Set environment variable to disable symlinks warning
+os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
+
+# Access the Hugging Face API token
+hf_token = os.getenv('HUGGINGFACEHUB_API_TOKEN')
+
+# Model ID
+model_id = "meta-llama/Meta-Llama-3-8B"
+
+# Load the LLaMA-3 model and tokenizer with the token
+model = LlamaForCausalLM.from_pretrained(model_id, use_auth_token=hf_token)
+tokenizer = LlamaTokenizer.from_pretrained(model_id, use_auth_token=hf_token)
 
 # Function to extract product information from HTML
 def extract_product_info(html):

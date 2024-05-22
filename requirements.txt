@@ -5,5 +5,5 @@ accelerate
 python-dotenv
 groq
 flask
-request
+requests
 bitsandbytes
