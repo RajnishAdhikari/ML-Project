@@ -4,3 +4,6 @@ torch
 accelerate
 python-dotenv
 groq
+flask
+request
+bitsandbytes
