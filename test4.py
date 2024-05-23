@@ -107,3 +107,7 @@ if __name__ == '__main__':
         json.dump(products, f, indent=4)
 
     print("Data saved to amazon_data.json")
+
+
+
+# here instead of giving the url manually generate code that take url from user 
