@@ -1,5 +1,3 @@
-
-
 from autoscraper import AutoScraper
 amazon_url="https://www.amazon.in/s?k=iphones"
 
@@ -9,3 +7,8 @@ scraper=AutoScraper()
 result=scraper.build(amazon_url,wanted_list)
 
 print(scraper.get_result_similar(amazon_url,grouped=True))
+
+
+# scraper.set_rule_aliases({'rule_hii5':'Title', 'rule_ibzk':'Price'})
+# scraper.keep_rules(['rule_hii5', 'rule_ibzk'])
+# scraper.save('amazon_search')
