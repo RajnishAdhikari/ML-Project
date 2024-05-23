@@ -22,6 +22,9 @@ def _aggregate_result(result):
             pass
     return final_result
 
+
+# if we need output then we use get method otherwise if we want to send our information to the database then  we use post methods 
+
 @app.route('/', methods=['GET'])
 def search_api():
     query = request.args.get('q')
