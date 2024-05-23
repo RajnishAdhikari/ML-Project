@@ -1,1 +1,6 @@
 <div class="puis-card-container s-card-container s-overflow-hidden aok-relative puis-include-content-margin puis puis-v2w7wbw07seb5q2lzmbzs3ayldk s-latency-cf-section puis-card-border"
+
+<span class="a-size-medium a-color-base a-text-normal"
+
+
+<span class="a-price" data-a-size="xl" data-a-color="base"><span class="a-offscreen">$464.79</span><span aria-hidden="true"><span class="a-price-symbol">$</span><span class="a-price-whole">464<span class="a-price-decimal">.</span></span><span class="a-price-fraction"
