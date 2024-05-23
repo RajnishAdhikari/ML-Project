@@ -1,13 +1,12 @@
-from flask import Flask, request, jsonify
+import os
 import requests
 from bs4 import BeautifulSoup
-from transformers import pipeline
+from groq import Groq
 
-app = Flask(__name__)
-
-# Load a pre-trained transformer model from Hugging Face for text generation
-model_name = "gpt2"  # You can choose any other model that suits your needs
-generator = pipeline('text-generation', model=model_name)
+# Initialize the Groq client
+client = Groq(
+    api_key=os.environ.get("GROQ_API_KEY"),  # Ensure you have set your Groq API key in the environment variables
+)
 
 def get_title(soup):
     try:
@@ -68,15 +67,18 @@ def get_image_url(soup):
 def generate_description(title):
     if not title:
         return "Description not available"
-    generated_text = generator(title, max_length=50, num_return_sequences=1)
-    return generated_text[0]['generated_text']
+    response = client.chat.completions.create(
+        messages=[
+            {
+                "role": "user",
+                "content": f"Generate a product description for the following title: {title}",
+            }
+        ],
+        model="llama3-8b-8192",
+    )
+    return response.choices[0].message.content
 
-@app.route("/extract", methods=["POST"])
-def extract_info():
-    if not request.json or 'html' not in request.json:
-        return jsonify({"error": "Invalid input"}), 400
-
-    html_content = request.json['html']
+def extract_info(html_content):
     soup = BeautifulSoup(html_content, "html.parser")
     
     title = get_title(soup)
@@ -97,7 +99,12 @@ def extract_info():
         "description": description
     }
     
-    return jsonify(product_info)
+    return product_info
 
+# Example usage
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000, debug=True)
+    # Replace this with the actual HTML content you want to process
+    html_content = """https://www.amazon.com/s?k=iphone+15+pro+max&ref=nb_sb_noss_1"""
+    
+    product_info = extract_info(html_content)
+    print(product_info)

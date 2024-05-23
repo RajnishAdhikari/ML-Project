@@ -72,7 +72,7 @@ if __name__ == '__main__':
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
         'Accept-Language': 'en-US, en;q=0.5'
     })
-    URL = "https://www.amazon.in/s?k=playstation+4&ref=nb_sb_noss_2"
+    URL = "https://www.amazon.com/s?k=iphone+15+pro+max&ref=nb_sb_noss_1"
 
     webpage = requests.get(URL, headers=HEADERS)
     soup = BeautifulSoup(webpage.content, "html.parser")
