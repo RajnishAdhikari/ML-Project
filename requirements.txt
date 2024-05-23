@@ -8,3 +8,7 @@ flask
 requests
 bitsandbytes
 sentencepiece
+termios
+webdriver_manager
+selenium
+autoscraper

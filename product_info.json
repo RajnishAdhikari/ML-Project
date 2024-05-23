@@ -1,7 +1,14 @@
-{
-    "name": "Not found",
-    "price": "Not found",
-    "description": "Not found",
-    "image_url": "Not found"
-}
-
+[
+    {
+        "name": "Not found",
+        "price": "Not found",
+        "description": "Not found",
+        "image_url": "Not found"
+    },
+    {
+        "name": "Not found",
+        "price": "Not found",
+        "description": "Not found",
+        "image_url": "Not found"
+    }
+]
