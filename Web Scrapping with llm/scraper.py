@@ -1,11 +1,11 @@
-import os
 import requests
-import pandas as pd
-import numpy as np
 from bs4 import BeautifulSoup
-import json
 
-# Function to extract Product Title
+HEADERS = ({
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+    'Accept-Language': 'en-US, en;q=0.5'
+})
+
 def get_title(soup):
     try:
         title = soup.find("span", attrs={"id": 'productTitle'})
@@ -15,7 +15,6 @@ def get_title(soup):
         title_string = ""
     return title_string
 
-# Function to extract Product Price
 def get_price(soup):
     try:
         price = soup.find("span", attrs={'id': 'priceblock_ourprice'}).string.strip()
@@ -26,7 +25,6 @@ def get_price(soup):
             price = ""
     return price
 
-# Function to extract Product Rating
 def get_rating(soup):
     try:
         rating = soup.find("i", attrs={'class': 'a-icon a-icon-star a-star-4-5'}).string.strip()
@@ -37,7 +35,6 @@ def get_rating(soup):
             rating = ""
     return rating
 
-# Function to extract Number of User Reviews
 def get_review_count(soup):
     try:
         review_count = soup.find("span", attrs={'id': 'acrCustomerReviewText'}).string.strip()
@@ -45,7 +42,6 @@ def get_review_count(soup):
         review_count = ""
     return review_count
 
-# Function to extract Availability Status
 def get_availability(soup):
     try:
         available = soup.find("div", attrs={'id': 'availability'})
@@ -54,7 +50,6 @@ def get_availability(soup):
         available = "Not Available"
     return available
 
-# Function to extract Product Image URL
 def get_image_url(soup):
     try:
         image_container = soup.find("div", attrs={'class': 'imgTagWrapper'})
@@ -67,18 +62,12 @@ def get_image_url(soup):
         image_url = ""
     return image_url
 
-if __name__ == '__main__':
-    HEADERS = ({
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-        'Accept-Language': 'en-US, en;q=0.5'
-    })
-    URL = "https://www.amazon.com/s?k=iphone+15+pro+max&ref=nb_sb_noss_1"
-
-    webpage = requests.get(URL, headers=HEADERS)
+def get_product_details(url):
+    webpage = requests.get(url, headers=HEADERS)
     soup = BeautifulSoup(webpage.content, "html.parser")
 
     links = soup.find_all("a", attrs={'class': 'a-link-normal s-no-outline'})
-    links_list = ["https://www.amazon.in" + link.get('href') for link in links if link.get('href') and not link.get('href').startswith("http")]
+    links_list = ["https://www.amazon.com" + link.get('href') for link in links if link.get('href') and not link.get('href').startswith("http")]
 
     products = []
 
@@ -102,12 +91,4 @@ if __name__ == '__main__':
         except requests.exceptions.RequestException as e:
             print(f"Error fetching the URL: {link}\nException: {e}")
 
-    # Save to JSON file
-    with open("amazon_data.json", "w") as f:
-        json.dump(products, f, indent=4)
-
-    print("Data saved to amazon_data.json")
-
-
-
-# here instead of giving the url manually generate code that take url from user 
+    return products
