@@ -1,13 +1,6 @@
-transformers
-huggingface-hub
-torch
-accelerate
-python-dotenv
-groq
 flask
+flask_cors
 requests
-bitsandbytes
-sentencepiece
-webdriver_manager
-selenium
-autoscraper
+bs4
+beautifulsoup4
+groq
