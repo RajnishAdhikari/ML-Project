@@ -1,24 +1,27 @@
-Based on the extracted data, here is the output in JSON format:
+Here are the extracted data and CSS selectors in JSON format:
 
 ```
-[
-  {
-    "Product Name": "Apple iPhone 11",
-    "Selector": ".E2Q9m4 .SLT5t4 div"
+{
+  "Product Price": {
+    "value": "$58,999",
+    "css_selector": ".WGBwfw div:nth-child(2)"
   },
-  {
-    "Product Price": "₹39,999",
-    "Selector": ".E2Q9m4 .SLT5t4 div"
+  "Product Name": {
+    "value": "Apple iPhone 14 Plus",
+    "css_selector": ".E2Q9m4"
   },
-  {
-    "Product Image URL": "https://rukminim2.flixcart.com/image/160/160/prod-fk-cms-brand-images/9d5696196cfb3f4440ca99b1018c8ff91a53716d1948ba73ee3bb68f36571d7a.jpg?q=90",
-    "Selector": ".E2Q9m4 .SLT5t4 img"
+  "Product Image URL": {
+    "value": "https://rukminim2.flixcart.com/image/200/200/cms-rpd-img/f5eb9b65a19a4a84bd00439775ae2da1_18b05ad9990_-original-imaghxcpvtta2hzs.jpeg?q=90",
+    "css_selector": "img[src*='imaghx9qaepzajta.jpeg']"
   },
-  {
-    "Product Rating": "N/A",
-    "Selector": "N/A"
+  "Product Reviews": {
+    "value": "not given",
+    "css_selector": "N/A"
+  },
+  "Product Rating": {
+    "value": "not given",
+    "css_selector": "N/A"
   }
-]
+}
 ```
-
-Note that since the product reviews and rating are not provided, the output does not include them.
+Let me know if you need anything else!
