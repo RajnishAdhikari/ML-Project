@@ -1,0 +1,24 @@
+Based on the extracted data, here is the JSON object with the product price, product name, product image URL, and product rating with their respective CSS selectors:
+
+```
+{
+  "Product Price": {
+    "value": "₹ 2,499",
+    "selector": ". ._30jeq3._16f0vs"
+  },
+  "Product Name": {
+    "value": "Boult Y1 Wireless Earbuds",
+    "selector": ".bHGpqo._2tWlC_"
+  },
+  "Product Image URL": {
+    "value": "https://rukminim2.flixcart.com/image/144/144/xif0q/headphone/l/r/w/-original-imag6hkknrg4zj.jpeg?q=50",
+    "selector": ". _0QyAeO"
+  },
+  "Product Rating": {
+    "value": "4.2",
+    "selector": ".yeLeBC"
+  }
+}
+```
+
+Please note that the product price is present in the first provided data, and the other values are present in the subsequent data.

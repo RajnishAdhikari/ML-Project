@@ -1,11 +1,11 @@
 from flask import Flask, request, render_template, jsonify
 import os
 import json
-from helper import split_content_and_process
 from scraper import get_product_details
-from groq_client import combined_content_processor
+from groq_client import combined_content_processor, content_receiver
+from helper import split_content_and_process
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='template')
 
 @app.route('/')
 def index():
@@ -19,7 +19,7 @@ def scrape():
         if "Failed to" in html_content:
             return jsonify({"error": html_content}), 500
         
-        combined_html = split_content_and_process(html_content)
+        combined_html = split_content_and_process(html_content, content_receiver)
         final_json = combined_content_processor(combined_html)
         
         # Save to JSON file
