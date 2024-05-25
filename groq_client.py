@@ -13,7 +13,7 @@ def content_receiver(content):
                 "content": f"{content} your task is to find out the product price, product name, product image url, product reviews and product rating with its css selector. Give me the value of each with its selector so that it is easier to read. Give me only data but not explanation.",
             }
         ],
-        model="llama3-70b-8192",
+        model="llama3-8b-8192",
     )
 
     return chat_completion.choices[0].message.content

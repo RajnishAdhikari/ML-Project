@@ -1,24 +1,24 @@
-Based on the extracted data, here is the JSON object with the product price, product name, product image URL, and product rating with their respective CSS selectors:
+Based on the extracted data, here is the output in JSON format:
 
 ```
-{
-  "Product Price": {
-    "value": "₹ 2,499",
-    "selector": ". ._30jeq3._16f0vs"
+[
+  {
+    "Product Name": "Apple iPhone 11",
+    "Selector": ".E2Q9m4 .SLT5t4 div"
   },
-  "Product Name": {
-    "value": "Boult Y1 Wireless Earbuds",
-    "selector": ".bHGpqo._2tWlC_"
+  {
+    "Product Price": "₹39,999",
+    "Selector": ".E2Q9m4 .SLT5t4 div"
   },
-  "Product Image URL": {
-    "value": "https://rukminim2.flixcart.com/image/144/144/xif0q/headphone/l/r/w/-original-imag6hkknrg4zj.jpeg?q=50",
-    "selector": ". _0QyAeO"
+  {
+    "Product Image URL": "https://rukminim2.flixcart.com/image/160/160/prod-fk-cms-brand-images/9d5696196cfb3f4440ca99b1018c8ff91a53716d1948ba73ee3bb68f36571d7a.jpg?q=90",
+    "Selector": ".E2Q9m4 .SLT5t4 img"
   },
-  "Product Rating": {
-    "value": "4.2",
-    "selector": ".yeLeBC"
+  {
+    "Product Rating": "N/A",
+    "Selector": "N/A"
   }
-}
+]
 ```
 
-Please note that the product price is present in the first provided data, and the other values are present in the subsequent data.
+Note that since the product reviews and rating are not provided, the output does not include them.
