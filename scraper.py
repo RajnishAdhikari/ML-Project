@@ -7,7 +7,7 @@ HEADERS = ({
     'Accept-Language': 'en-US, en;q=0.5'
 })
 
-def get_product_details(url, max_retries=3, backoff_factor=0.3):
+def get_product_details(url, max_retries=5, backoff_factor=0.3):
     for attempt in range(max_retries):
         try:
             response = requests.get(url, headers=HEADERS)
